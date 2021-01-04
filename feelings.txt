@@ -1,0 +1,10 @@
+likes
+hates
+loves
+envies
+recognizes
+dislikes
+surprises
+anticipates
+bores
+confuses
