@@ -1,4 +1,3 @@
-likes
 hates
 loves
 envies
