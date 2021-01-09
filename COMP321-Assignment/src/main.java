@@ -3,6 +3,7 @@ import java.util.regex.*;
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
+import java.util.ArrayList;
 
 class Testing {
 
@@ -39,7 +40,7 @@ class Testing {
 
     public static String sixth_regex(String text){
 
-        Pattern pat = Pattern.compile("((\\w+ with).*)+",
+        Pattern pat = Pattern.compile("\\w+ with",
                 Pattern.CASE_INSENSITIVE);
         Matcher m = pat.matcher(text);
 
@@ -47,30 +48,36 @@ class Testing {
 
         if (m.find()) {
             str = m.group();
-            System.out.println(str);
+        }
+
+        String new_text = null;
+        Pattern pat_small = null;
+
+        if (str != null) {
+            pat_small = Pattern.compile("^" + str.charAt(0) + ".*");
         }
 
         try {
             File myObj = new File("feelings.txt");
             Scanner myReader = new Scanner(myObj);
 
-            Pattern pat_small = Pattern.compile("^" + String.valueOf(str.charAt(0)) + ".*");
-
-            while (myReader.hasNextLine()) {
+            while (myReader.hasNextLine() && str != null) {
                 String data = myReader.nextLine();
+
                 Matcher m_small = pat_small.matcher(data);
 
                 if (m_small.find()) {
-                    System.out.println("***********" + data);
+                    new_text = m.replaceFirst(m_small.group());
                 }
             }
             myReader.close();
+
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
 
-        return null;
+        return new_text;
     }
 
     public static String fifth_regex(String text){
@@ -111,6 +118,13 @@ class Testing {
         return new_text_fin;
     }
 
+    public static String repeat_sixth_reg(String text){
+        while (text.contains("with")) {
+            text = sixth_regex(text);
+        }
+        return text;
+    }
+
     public static void main(String[] args) {
         try {
             File myObj = new File("original.txt");
@@ -123,7 +137,7 @@ class Testing {
                 String fourth_reg = fourth_regex(third_reg);
                 String fifth_reg = fifth_regex(fourth_reg);
                 String sixth_reg = sixth_regex(fifth_reg);
-                System.out.println(sixth_reg);
+                System.out.println(repeat_sixth_reg(sixth_reg));
             }
             myReader.close();
         } catch (FileNotFoundException e) {
