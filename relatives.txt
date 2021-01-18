@@ -1,10 +1,7 @@
 mother
 father
-grandfather
-grandchildren
 uncle
 aunt
-grandmother
 niece
 nephew
 sister

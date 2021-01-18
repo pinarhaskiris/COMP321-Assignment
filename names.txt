@@ -2,7 +2,6 @@ John
 George
 David
 Jane
-Ezekiel
 Roberto
 Valentino
 Clair
