@@ -1,6 +1,7 @@
 # COMP321-Assignment
 Assignment for Automata Theory and Formal Languages course.<br/>
 A file is encrypted in two parts.<br/>
+
 **Part 1:**<br/>
 Modify the sentences using regex. (6 different modifications were made)<br/>
 **Part 2:**<br/>
