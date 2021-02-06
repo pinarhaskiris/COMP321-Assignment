@@ -1,14 +1,14 @@
 # COMP321-Assignment
 Assignment for Automata Theory and Formal Languages course.
 A file is encrypted in two parts.
-###### Part 1: 
+** Part 1: **
 Modify the sentences using regex. (6 different modifications were made)
-###### Part 2: 
+** Part 2: **
 Insert sentences which can't be generated with the given grammar.
 
 Grammar rules and the modifications made are known. The program decrypts the file by reversing the modifications and getting rid of the sentences which can't be generated with the given grammar.
 
-## Grammar Rules:
+### Grammar Rules:
 S -> S 's B A | N
 B -> brother | sister | aunt | uncle ... (relatives.txt)
 A -> V B C B | V B
